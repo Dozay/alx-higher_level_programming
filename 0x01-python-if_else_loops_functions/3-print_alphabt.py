@@ -1,4 +1,6 @@
 #!/usr/bin/python3
-for letter in range(97, 123):
-    if chr(letter) is not 'q' and chr(letter) is not 'e':
-        print("{}".format(chr(letter)), end="")
+number = 97
+while number <= 122:
+    if number != ord('q') and number != ord('e'):
+        print("{}".format(chr(number)), end="")
+    number += 1
