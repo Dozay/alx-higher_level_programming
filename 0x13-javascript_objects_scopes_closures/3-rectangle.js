@@ -1,14 +1,26 @@
 #!/usr/bin/node
-class Rectangle {
-	constructor (w, h) {
-		if (((w = parseInt(w)) > 0) && ((h = parseInt(h)) > 0)) {
-			this.width = w;
-			this.height = h;
-		}
-	}
 
-	print () {
-		console.log(('X'.repeat(this.width) + '\n').repeat(this.height - 1) + 'X'.repeat(this.width));
-	}
-}
-module.exports = Rectangle;
+// Prints a Rectangle with the parameters passed
+
+module.exports = class Rectangle {
+  constructor (width, height) {
+    if (typeof width === 'number' && typeof height === 'number' && width > 0 && height > 0) {
+      this.width = width;
+      this.height = height;
+    }
+  }
+
+  print () {
+    for (let i = 0; i < this.height; ++i) {
+      let j = 0;
+
+      for (; j < this.width; ++j) {
+        process.stdout.write('X');
+      }
+
+      if (j === this.width) {
+        console.log('');
+      }
+    }
+  }
+};
